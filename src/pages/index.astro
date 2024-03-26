@@ -26,7 +26,12 @@ import Layout from "../layouts/Layout.astro";
 					<label for="theme3">Theme 3</label>
 				</div>
 			</div>
-			<div class="history-container">history</div>
+			<div class="history-container">
+				<h2>History</h2>
+				<div class="history-content">
+					<p>hello</p>
+				</div>
+			</div>
 		</div>
 		<div class="calculator">
 			<div class="calculator-output">
@@ -34,35 +39,59 @@ import Layout from "../layouts/Layout.astro";
 			</div>
 			<div class="calculator-buttons-container">
 				<div class="scientific-buttons">
-					<button type="button">sin</button>
-					<button type="button">cos</button>
-					<button type="button">tan</button>
-					<button type="button">sin<sup>-1</sup></button>
-					<button type="button">cos<sup>-1</sup></button>
-					<button type="button">tan<sup>-1</sup></button>
-					<button type="button">π</button>
-					<button type="button">e</button>
-					<button type="button">x<sup>y</sup></button>
-					<button type="button">x<sup>3</sup></button>
-					<button type="button">x<sup>2</sup></button>
-					<button type="button">e<sup>x</sup></button>
-					<button type="button">10<sup>x</sup></button>
-					<button type="button"><sup>y</sup>√x</button>
-					<button type="button"><sup>3</sup>√x</button>
-					<button type="button">√x</button>
-					<button type="button">ln</button>
-					<button type="button">log</button>
-					<button type="button">(</button>
-					<button type="button">)</button>
-					<button type="button">1/x</button>
-					<button type="button">%</button>
-					<button type="button">n!</button>
+					<button type="button" id="sin">sin</button>
+					<button type="button" id="cos">cos</button>
+					<button type="button" id="tan">tan</button>
+
+					<button type="button" id="inverse-sin">
+						<span>sin<sup>-1</sup></span>
+					</button>
+					<button type="button" id="inverse-cos">
+						<span>cos<sup>-1</sup></span>
+					</button>
+					<button type="button" id="inverse-tan">
+						<span>tan<sup>-1</sup></span>
+					</button>
+					<button type="button" id="pi">π</button>
+					<button type="button" id="e">e</button>
+
+					<button type="button" id="exponent">
+						<span>x<sup>y</sup></span>
+					</button>
+					<button type="button" id="exponent-3">
+						<span>x<sup>3</sup></span>
+					</button>
+					<button type="button" id="exponent-2">
+						<span>x<sup>2</sup></span>
+					</button>
+
+					<button type="button" id="ex">
+						<span>e<sup>x</sup></span>
+					</button>
+
+					<button type="button" id="power-ten">
+						<span>10<sup>x</sup></span>
+					</button>
+					<button type="button" id="y-sqrt">
+						<span><sup>y</sup>√x</span>
+					</button>
+					<button type="button" id="3-sqrt">
+						<span><sup>3</sup>√x</span>
+					</button>
+					<button type="button" id="sqrt">√x</button>
+					<button type="button" id="n-log">ln</button>
+					<button type="button" id="log">log</button>
+					<button type="button" id="parenthesis-start">(</button>
+					<button type="button" id="parenthesis-end">)</button>
+					<button type="button" id="fraction">1/x</button>
+					<button type="button" id="percent">%</button>
+					<button type="button" id="n">n!</button>
 				</div>
 				<div class="basic-buttons">
 					<button type="button" id="seven">7</button>
 					<button type="button" id="eight">8</button>
 					<button type="button" id="nine">9</button>
-					<button type="button" id="backspace" class="orange">
+					<button type="button" id="backspace" class="orange bold">
 						<span class="material-symbols-sharp"> backspace </span>
 					</button>
 
@@ -81,8 +110,8 @@ import Layout from "../layouts/Layout.astro";
 					<button type="button" id="divide">/</button>
 					<button type="button" id="multiply">x</button>
 
-					<button type="button" id="clear" class="orange">C</button>
-					<button type="button" id="enter" class="orange">enter</button>
+					<button type="button" id="clear" class="orange bold">C</button>
+					<button type="button" id="enter" class="orange bold">enter</button>
 				</div>
 			</div>
 		</div>
@@ -150,6 +179,7 @@ import Layout from "../layouts/Layout.astro";
 		box-shadow: 0px 2px 5px var(--font-colour);
 
 		padding: 1rem;
+		height: min-content;
 	}
 
 	.calculator-output {
@@ -179,19 +209,23 @@ import Layout from "../layouts/Layout.astro";
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 		height: 3rem;
 	}
 
 	#clear,
 	#enter {
 		grid-column: span 2;
-		font-weight: 600;
 	}
 
 	/* =================== TABLET =================== */
 	@media only screen and (min-width: 40.063em) {
 		.container {
-			grid-column: span 6;
+			grid-column: 2 / 6;
+		}
+
+		.calculator-output {
+			height: 15vh;
 		}
 	}
 
@@ -199,6 +233,51 @@ import Layout from "../layouts/Layout.astro";
 	@media only screen and (min-width: 64.063em) {
 		.container {
 			grid-column: span 12;
+
+			display: grid;
+			grid-template-columns: max-content auto;
+			gap: 2rem;
+		}
+
+		/* ---------------- theme container ---------------- */
+		.theme-container {
+			display: grid;
+			grid-template-rows: min-content 1fr 1fr;
+		}
+
+		.theme-container h1 {
+			text-align: left;
+		}
+
+		.toggle-container,
+		.history-container {
+			display: block;
+		}
+
+		/* ---------------- calculator ---------------- */
+		.calculator-buttons-container {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2rem;
+		}
+
+		.calculator-output {
+			height: 30vh;
+		}
+
+		.scientific-buttons {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 0.8rem 5px;
+			margin-bottom: 0.8rem;
+		}
+
+		.scientific-buttons button {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			height: 3rem;
 		}
 	}
 </style>
