@@ -5,27 +5,11 @@ import Layout from "../layouts/Layout.astro";
 <Layout
 	title="A Simple Calculator"
 	description="A simple calculator"
-	favicon="/favicon.svg"
+	favicon="/calculator-favicon.svg"
 >
 	<div class="container">
 		<div class="theme-container">
 			<h1>A Simple Calculator</h1>
-			<div class="toggle-container">
-				<div class="input-container">
-					<input type="checkbox" name="theme1" id="theme1" />
-					<label for="theme1">Theme 1</label>
-				</div>
-
-				<div class="input-container">
-					<input type="checkbox" name="theme2" id="theme2" />
-					<label for="theme2">Theme 2</label>
-				</div>
-
-				<div class="input-container">
-					<input type="checkbox" name="theme3" id="theme3" />
-					<label for="theme3">Theme 3</label>
-				</div>
-			</div>
 			<div class="history-container">
 				<h2>History</h2>
 				<div class="history-content">
@@ -35,9 +19,10 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 		<div class="calculator">
 			<div class="calculator-output">
-				<h1>0</h1>
+				<h1 id="display">0</h1>
 			</div>
 			<div class="calculator-buttons-container">
+				<!-- scientific calculator buttons -->
 				<div class="scientific-buttons">
 					<button type="button" id="sin">sin</button>
 					<button type="button" id="cos">cos</button>
@@ -87,12 +72,13 @@ import Layout from "../layouts/Layout.astro";
 					<button type="button" id="percent">%</button>
 					<button type="button" id="n">n!</button>
 				</div>
+				<!-- simple calculator buttons -->
 				<div class="basic-buttons">
 					<button type="button" id="seven">7</button>
 					<button type="button" id="eight">8</button>
 					<button type="button" id="nine">9</button>
 					<button type="button" id="backspace" class="orange bold">
-						<span class="material-symbols-sharp"> backspace </span>
+						<span class="material-symbols-sharp">backspace</span>
 					</button>
 
 					<button type="button" id="four">4</button>
@@ -164,7 +150,6 @@ import Layout from "../layouts/Layout.astro";
 		text-align: center;
 	}
 
-	.toggle-container,
 	.history-container {
 		display: none;
 	}
@@ -249,7 +234,6 @@ import Layout from "../layouts/Layout.astro";
 			text-align: left;
 		}
 
-		.toggle-container,
 		.history-container {
 			display: block;
 		}

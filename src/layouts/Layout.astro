@@ -9,7 +9,7 @@ interface Props {
 const {
 	title = "Simple Calculator",
 	description = "A simple calculator",
-	favicon = "/favicon.svg",
+	favicon = "/calculator-favicon.svg",
 } = Astro.props;
 ---
 
@@ -33,6 +33,7 @@ const {
 			<slot />
 		</div>
 	</body>
+	<script src="../functions/calculator.ts"></script>
 </html>
 
 <style is:global>
