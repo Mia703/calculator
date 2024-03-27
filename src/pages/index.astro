@@ -24,53 +24,53 @@ import Layout from "../layouts/Layout.astro";
 			<div class="calculator-buttons-container">
 				<!-- scientific calculator buttons -->
 				<div class="scientific-buttons">
-					<button type="button" id="sin">sin</button>
-					<button type="button" id="cos">cos</button>
-					<button type="button" id="tan">tan</button>
+					<button type="button" id="trig-sin">sin</button>
+					<button type="button" id="trig-cos">cos</button>
+					<button type="button" id="trig-tan">tan</button>
 
-					<button type="button" id="inverse-sin">
+					<button type="button" id="inv-sin">
 						<span>sin<sup>-1</sup></span>
 					</button>
-					<button type="button" id="inverse-cos">
+					<button type="button" id="inv-cos">
 						<span>cos<sup>-1</sup></span>
 					</button>
-					<button type="button" id="inverse-tan">
+					<button type="button" id="inv-tan">
 						<span>tan<sup>-1</sup></span>
 					</button>
 					<button type="button" id="pi">π</button>
 					<button type="button" id="e">e</button>
 
-					<button type="button" id="exponent">
+					<button type="button" id="exp">
 						<span>x<sup>y</sup></span>
 					</button>
-					<button type="button" id="exponent-3">
+					<button type="button" id="exp-3">
 						<span>x<sup>3</sup></span>
 					</button>
-					<button type="button" id="exponent-2">
+					<button type="button" id="exp-2">
 						<span>x<sup>2</sup></span>
 					</button>
 
-					<button type="button" id="ex">
+					<button type="button" id="e-power-x">
 						<span>e<sup>x</sup></span>
 					</button>
 
-					<button type="button" id="power-ten">
+					<button type="button" id="ten-power-x">
 						<span>10<sup>x</sup></span>
 					</button>
-					<button type="button" id="y-sqrt">
+					<button type="button" id="y-root-x">
 						<span><sup>y</sup>√x</span>
 					</button>
-					<button type="button" id="3-sqrt">
+					<button type="button" id="cub-root-x">
 						<span><sup>3</sup>√x</span>
 					</button>
-					<button type="button" id="sqrt">√x</button>
-					<button type="button" id="n-log">ln</button>
-					<button type="button" id="log">log</button>
-					<button type="button" id="parenthesis-start">(</button>
-					<button type="button" id="parenthesis-end">)</button>
-					<button type="button" id="fraction">1/x</button>
-					<button type="button" id="percent">%</button>
-					<button type="button" id="n">n!</button>
+					<button type="button" id="sqrt-x">√x</button>
+					<button type="button" id="natural-log">ln</button>
+					<button type="button" id="log-base-10">log</button>
+					<button type="button" id="parenthesis-open">(</button>
+					<button type="button" id="parenthesis-close">)</button>
+					<button type="button" id="reciprocal">1/x</button>
+					<button type="button" id="percentage">%</button>
+					<button type="button" id="factorial">n!</button>
 				</div>
 				<!-- simple calculator buttons -->
 				<div class="basic-buttons">
@@ -220,7 +220,7 @@ import Layout from "../layouts/Layout.astro";
 			grid-column: span 12;
 
 			display: grid;
-			grid-template-columns: max-content auto;
+			grid-template-columns: 0.4fr auto;
 			gap: 2rem;
 		}
 
@@ -241,7 +241,7 @@ import Layout from "../layouts/Layout.astro";
 		/* ---------------- calculator ---------------- */
 		.calculator-buttons-container {
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			/* grid-template-columns: repeat(2, 1fr); */
 			gap: 2rem;
 		}
 
@@ -249,12 +249,12 @@ import Layout from "../layouts/Layout.astro";
 			height: 30vh;
 		}
 
-		.scientific-buttons {
+		/* .scientific-buttons {
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
 			gap: 0.8rem 5px;
 			margin-bottom: 0.8rem;
-		}
+		} */
 
 		.scientific-buttons button {
 			display: flex;
