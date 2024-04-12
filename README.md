@@ -52,3 +52,19 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+
+# Adding Astro to Vercel
+ 
+Download Vercel CLI (npm)
+
+Download @astro/vercel via npm
+
+Run "vercel build"
+
+Check that ".vercel" folder is not in .gitignore
+
+Push to github
+
+Create new project on Vercel
+
