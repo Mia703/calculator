@@ -1,3 +1,59 @@
+
+// Wanted to make a scientific calculator on desktop
+
+<!-- scientific calculator buttons -->
+<div class="scientific-buttons">
+	<button type="button" id="trig-sin">sin</button>
+	<button type="button" id="trig-cos">cos</button>
+	<button type="button" id="trig-tan">tan</button>
+
+	<button type="button" id="inv-sin">
+		<span>sin<sup>-1</sup></span>
+	</button>
+	<button type="button" id="inv-cos">
+		<span>cos<sup>-1</sup></span>
+	</button>
+	<button type="button" id="inv-tan">
+		<span>tan<sup>-1</sup></span>
+	</button>
+	<button type="button" id="pi">π</button>
+	<button type="button" id="e">e</button>
+
+	<button type="button" id="exp">
+		<span>x<sup>y</sup></span>
+	</button>
+	<button type="button" id="exp-3">
+		<span>x<sup>3</sup></span>
+	</button>
+	<button type="button" id="exp-2">
+		<span>x<sup>2</sup></span>
+	</button>
+
+	<button type="button" id="e-power-x">
+		<span>e<sup>x</sup></span>
+	</button>
+
+	<button type="button" id="ten-power-x">
+		<span>10<sup>x</sup></span>
+	</button>
+	<button type="button" id="y-root-x">
+		<span><sup>y</sup>√x</span>
+	</button>
+	<button type="button" id="cub-root-x">
+		<span><sup>3</sup>√x</span>
+	</button>
+	<button type="button" id="sqrt-x">√x</button>
+	<button type="button" id="natural-log">ln</button>
+	<button type="button" id="log-base-10">log</button>
+	<button type="button" id="parenthesis-open">(</button>
+	<button type="button" id="parenthesis-close">)</button>
+	<button type="button" id="reciprocal">1/x</button>
+	<button type="button" id="percentage">%</button>
+	<button type="button" id="factorial">n!</button>
+</div>
+
+
+// Javascript functions
 function findOperators(button: any, equation: string) {
 	switch (button.id) {
 		case "trig-sin":

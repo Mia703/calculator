@@ -13,7 +13,7 @@ import Layout from "../layouts/Layout.astro";
 			<div class="history-container">
 				<h2>History</h2>
 				<div class="history-content">
-					<p>hello</p>
+					<p id="history">hello</p>
 				</div>
 			</div>
 		</div>
@@ -22,56 +22,7 @@ import Layout from "../layouts/Layout.astro";
 				<h1 id="display">0</h1>
 			</div>
 			<div class="calculator-buttons-container">
-				<!-- scientific calculator buttons -->
-				<div class="scientific-buttons">
-					<button type="button" id="trig-sin">sin</button>
-					<button type="button" id="trig-cos">cos</button>
-					<button type="button" id="trig-tan">tan</button>
-
-					<button type="button" id="inv-sin">
-						<span>sin<sup>-1</sup></span>
-					</button>
-					<button type="button" id="inv-cos">
-						<span>cos<sup>-1</sup></span>
-					</button>
-					<button type="button" id="inv-tan">
-						<span>tan<sup>-1</sup></span>
-					</button>
-					<button type="button" id="pi">π</button>
-					<button type="button" id="e">e</button>
-
-					<button type="button" id="exp">
-						<span>x<sup>y</sup></span>
-					</button>
-					<button type="button" id="exp-3">
-						<span>x<sup>3</sup></span>
-					</button>
-					<button type="button" id="exp-2">
-						<span>x<sup>2</sup></span>
-					</button>
-
-					<button type="button" id="e-power-x">
-						<span>e<sup>x</sup></span>
-					</button>
-
-					<button type="button" id="ten-power-x">
-						<span>10<sup>x</sup></span>
-					</button>
-					<button type="button" id="y-root-x">
-						<span><sup>y</sup>√x</span>
-					</button>
-					<button type="button" id="cub-root-x">
-						<span><sup>3</sup>√x</span>
-					</button>
-					<button type="button" id="sqrt-x">√x</button>
-					<button type="button" id="natural-log">ln</button>
-					<button type="button" id="log-base-10">log</button>
-					<button type="button" id="parenthesis-open">(</button>
-					<button type="button" id="parenthesis-close">)</button>
-					<button type="button" id="reciprocal">1/x</button>
-					<button type="button" id="percentage">%</button>
-					<button type="button" id="factorial">n!</button>
-				</div>
+				
 				<!-- simple calculator buttons -->
 				<div class="basic-buttons">
 					<button type="button" id="seven">7</button>
@@ -155,6 +106,7 @@ import Layout from "../layouts/Layout.astro";
 	}
 
 	/* ---------------- calculator ---------------- */
+	// FIXME: if the number is too large, the width of the calculator expands
 	.calculator {
 		background-color: var(--calculator-background);
 		border: 1px solid var(--font-colour);
@@ -217,11 +169,11 @@ import Layout from "../layouts/Layout.astro";
 	/* =================== DESKTOP =================== */
 	@media only screen and (min-width: 64.063em) {
 		.container {
-			grid-column: span 12;
+			grid-column: 2 / 12;
 
 			display: grid;
-			grid-template-columns: 0.4fr auto;
-			gap: 2rem;
+			grid-template-columns: .4fr auto;
+			gap: 4rem;
 		}
 
 		/* ---------------- theme container ---------------- */
