@@ -1,0 +1,229 @@
+/* =================== imported fonts =================== */
+
+/* ---------- sub-header ---------- */
+
+/* =================== global variables =================== */
+:root {
+	--primary-bg-colour: #fafafa;
+
+	--calc-bg-colour: #333;
+	--calc-box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
+		10px 10px 70px rgba(0, 0, 0, 0.25),
+		inset -5px -5px 15px rgba(0, 0, 0, 0.25),
+		inset 5px 5px 15px rgb(0, 0, 0, 0.25);
+
+	--calc-screen-colour: #a7af7c;
+	--calc-screen-text-colour: rgb(85, 85, 85);
+
+	--calc-button-inner-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+		inset 0 -8px 8px rgba(0, 0, 0, 0.25),
+		0 0 0 2px rgba(0, 0, 0, 0.75),
+		10px 20px 25px rgba(0, 0, 0, 0.4);
+
+	--calc-button-outer-shadow: -5px -5px 15px rgba(0, 0, 0, 0.1),
+		10px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* =================== reset default styles =================== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--primary-bg-colour);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#main-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+	padding: 1.5rem;
+}
+
+.container {
+	grid-column: span 4;
+	width: 100%;
+	background-color: var(--calc-bg-colour);
+	padding: 40px 30px 30px;
+	border-radius: 20px;
+	box-shadow: var(--calc-box-shadow);
+}
+
+/* =================== calculator screen =================== */
+
+.calculator .calc-screen {
+	width: 100%;
+	height: 90px;
+	background-color: var(--calc-screen-colour);
+	margin-bottom: 1.5rem;
+	padding: 10px;
+	border-radius: 8px;
+	overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: end;
+}
+
+.calculator .calc-screen .value {
+	width: 100%;
+	overflow-x: auto;
+	font-size: 3em;
+	color: var(--calc-screen-text-colour);
+	text-align: right;
+}
+
+/* =================== calculator buttons =================== */
+
+.calculator .calc-body {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+	position: relative;
+	justify-items: center;
+}
+
+.calculator .calc-body button {
+	border: none;
+	width: 60px;
+	height: 60px;
+	background: linear-gradient(180deg, #2f2f2f, #3f3f3f);
+	color: #fff;
+	border-radius: 10px;
+	cursor: pointer;
+	box-shadow: var(--calc-button-inner-shadow);
+	position: relative;
+}
+
+.calculator .calc-body button::before {
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: 4px;
+	right: 12px;
+	bottom: 14px;
+	border-radius: 10px;
+	background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
+	box-shadow: var(--calc-button-outer-shadow);
+	border-left: 1px solid rgba(0, 0, 0, 0.27);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.27);
+	border-top: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.calculator .calc-body button i {
+	position: relative;
+	text-transform: uppercase;
+	font-size: 1em;
+}
+
+.calculator .calc-body button:active {
+	filter: brightness(1.5);
+}
+
+.calculator .calc-body button.clear {
+	background: #f00;
+}
+
+.calculator .calc-body button.clear::before {
+	background: linear-gradient(90deg, #d20000, rgba(255, 255, 255, 0.36));
+	border-left: 1px solid rgba(255, 255, 255, 0.27);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+	border-top: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+.calculator .calc-body button.equal {
+	grid-row: span 2;
+	height: 100%;
+	background: #2196f3;
+}
+
+.calculator .calc-body button.equal::before {
+	background: linear-gradient(90deg, #1479c9, rgba(255, 255, 255, 0.36));
+	border-left: 1px solid rgba(255, 255, 255, 0.27);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+	border-top: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+
+/* =================== font styles =================== */
+
+/* =================== constants =================== */
+
+/* =================== media queries =================== */
+
+/* =================== TABLET =================== */
+@media only screen and (min-width: 40.063em) {
+	#main-grid {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	.container {
+		grid-column: span 6;
+		min-height: 60vh;
+		padding: 60px 50px 50px;
+		width: 600px;
+	}
+
+	/* =================== calculator screen =================== */
+	.calculator .calc-screen {
+		height: 120px;
+		margin-bottom: 2rem;
+	}
+
+	.calculator .calc-screen .value {
+		font-size: 4em;
+	}
+
+	/* =================== calculator buttons =================== */
+	.calculator .calc-body {
+		gap: 15px;
+	}
+
+	.calculator .calc-body button {
+		width: 100px;
+		height: 100px;
+	}
+
+	.calculator .calc-body button i {
+		font-size: 2em;
+	}
+}
+
+/* =================== DESKTOP =================== */
+@media only screen and (min-width: 64.063em) {
+
+	.container {
+		width: 500px;
+	}
+
+	.finger-cursor {
+		background-color: rgba(24, 23, 23, 0.342);
+		width: 5rem;
+		height: 5rem;
+		position: fixed;
+		top: 0;
+		left: 0;
+		border-radius: 100px;
+		filter: blur(10px);
+		z-index: 10;
+		pointer-events: none;
+		visibility: hidden;
+	}
+
+	.calculator .calc-body button {
+		width: 80px;
+		height: 80px;
+	}
+
+	.calculator .calc-body button i {
+		font-size: 1.5em;
+	}
+}
